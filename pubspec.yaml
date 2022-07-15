@@ -17,6 +17,7 @@ dependencies:
   path_provider: ^2.0.11
   provider: ^6.0.3
   collection: ^1.16.0
+  flutter_svg: ^1.1.1+1
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +29,28 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/legend/
+    - assets/images/legend/ash/
+    - assets/images/legend/bangalore/
+    - assets/images/legend/bloodhound/
+    - assets/images/legend/caustic/
+    - assets/images/legend/crypto/
+    - assets/images/legend/fade/
+    - assets/images/legend/fuse/
+    - assets/images/legend/gibraltar/
+    - assets/images/legend/horizon/
+    - assets/images/legend/lifeline/
+    - assets/images/legend/loba/
+    - assets/images/legend/madmaggie/
+    - assets/images/legend/mirage/
+    - assets/images/legend/newcastle/
+    - assets/images/legend/octane/
+    - assets/images/legend/pathfinder/
+    - assets/images/legend/rampart/
+    - assets/images/legend/revenant/
+    - assets/images/legend/seer/
+    - assets/images/legend/valkyrie/
+    - assets/images/legend/wattson/
+    - assets/images/legend/wraith/

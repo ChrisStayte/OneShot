@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:oneshot/enums/legends.dart';
+import 'package:oneshot/extensions.dart';
 import 'package:oneshot/models/legend.dart';
 import 'package:oneshot/providers/legends_provider.dart';
 import 'package:provider/provider.dart';
@@ -42,10 +43,14 @@ class WikiScreen extends StatelessWidget {
                     margin: EdgeInsets.all(10),
                     color: Colors.red,
                     width: 80,
-                    child: Center(
-                      child: Text(
-                        legend.name,
-                      ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                            'assets/images/legend/${legend.name.toLowerCaseStripped()}/profile.png'),
+                        Text(
+                          legend.name,
+                        ),
+                      ],
                     ),
                   ),
                 );

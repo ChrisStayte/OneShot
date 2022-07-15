@@ -63,10 +63,11 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {
               _currentIndex = index;
             });
+            return;
+          }
 
-            if (keys[index].currentState!.canPop()) {
-              keys[index].currentState!.popUntil((route) => route.isFirst);
-            }
+          if (keys[index].currentState!.canPop()) {
+            keys[index].currentState!.popUntil((route) => route.isFirst);
           }
         },
         items: navigationBarItems,
