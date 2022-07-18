@@ -18,6 +18,7 @@ dependencies:
   provider: ^6.0.3
   collection: ^1.16.0
   flutter_svg: ^1.1.1+1
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -31,6 +32,9 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images/weapon/
+    - assets/images/weapon/ammoType/
+    - assets/images/legendType/
     - assets/images/legend/
     - assets/images/legend/ash/
     - assets/images/legend/bangalore/

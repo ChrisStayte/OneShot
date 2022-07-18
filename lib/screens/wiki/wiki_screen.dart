@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -14,15 +15,18 @@ class WikiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          elevation: 0,
           title: Text(
-        'One Shot Wiki',
-      )),
+            'One Shot Wiki',
+          )),
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(vertical: 10),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            'Legends',
-            style: Theme.of(context).textTheme.titleLarge,
+          ListTile(
+            title: Text(
+              'Legends',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
           Expanded(
             child: ListView.builder(
@@ -36,39 +40,26 @@ class WikiScreen extends StatelessWidget {
                     .toList()[index];
                 Legend legend =
                     context.read<LegendsProvider>().legends[legendKey]!;
-                return GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, '/legend',
-                      arguments: legend.name),
-                  child: Container(
-                    margin: EdgeInsets.all(10),
-                    color: Colors.red,
-                    width: 80,
-                    child: Column(
-                      children: [
-                        Image.asset(
-                            'assets/images/legend/${legend.name.toLowerCaseStripped()}/profile.png'),
-                        Text(
-                          legend.name,
-                        ),
-                      ],
-                    ),
-                  ),
-                );
+                return LegendCard(legend: legend);
               },
             ),
           ),
-          Text(
-            'Weapons',
-            style: Theme.of(context).textTheme.titleLarge,
+          ListTile(
+            title: Text(
+              'Weapons',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
           Expanded(
             child: ListView(
               scrollDirection: Axis.horizontal,
             ),
           ),
-          Text(
-            'Gear',
-            style: Theme.of(context).textTheme.titleLarge,
+          ListTile(
+            title: Text(
+              'Gear',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
           Expanded(
             child: ListView(
@@ -76,6 +67,46 @@ class WikiScreen extends StatelessWidget {
             ),
           ),
         ]),
+      ),
+    );
+  }
+}
+
+class LegendCard extends StatelessWidget {
+  const LegendCard({
+    super.key,
+    required this.legend,
+  });
+
+  final Legend legend;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () =>
+          Navigator.pushNamed(context, '/legend', arguments: legend.name),
+      child: Container(
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+            color: Colors.grey.shade400,
+            borderRadius: BorderRadius.circular(18)),
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        width: 100,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/legend/${legend.name.toLowerCaseStripped()}/profile.png',
+            ),
+            AutoSizeText(
+              legend.name,
+              maxLines: 1,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

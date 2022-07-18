@@ -21,7 +21,17 @@ class LegendScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text(legend.name),
+        actions: [
+          SvgPicture.asset(
+            'assets/images/legendType/${legend.legendType.name}.svg',
+            color: Colors.white,
+          ),
+          SizedBox(
+            width: 5,
+          )
+        ],
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -38,9 +48,13 @@ class LegendScreen extends StatelessWidget {
             alignment: WrapAlignment.center,
             spacing: 10,
             children: [
-              Chip(label: Text(legend.inMainGame.toString())),
               Chip(
-                label: Text(legend.inMainGame.toString()),
+                avatar: Icon(legend.inMainGame ? Icons.check : Icons.cancel),
+                label: const Text('Apex'),
+              ),
+              Chip(
+                avatar: Icon(legend.inMobileGame ? Icons.check : Icons.cancel),
+                label: const Text('Apex Mobile'),
               )
             ],
           ),

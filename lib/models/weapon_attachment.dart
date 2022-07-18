@@ -1,0 +1,3 @@
+class WeaponAttachment {
+  String name;
+}
