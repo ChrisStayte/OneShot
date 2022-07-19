@@ -1,9 +1,13 @@
+import 'package:oneshot/enums/item_type.dart';
+
 abstract class Attachment {
   bool vaultedInMain;
-  bool valuedInMobile;
+  bool vaultedInMobile;
+  ItemType itemType;
 
   Attachment({
+    required this.itemType,
     this.vaultedInMain = false,
-    this.valuedInMobile = false,
+    this.vaultedInMobile = false,
   });
 }

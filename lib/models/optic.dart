@@ -6,13 +6,12 @@ import 'package:oneshot/models/attachment.dart';
 class Optic extends Attachment {
   String name;
   OpticRange range;
-  ItemType itemType;
   List<Weapons> compatibleWeapons;
 
   Optic({
     required this.name,
     required this.range,
-    required this.itemType,
+    required super.itemType,
     required this.compatibleWeapons,
   });
 }

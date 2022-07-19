@@ -5,14 +5,13 @@ import 'package:oneshot/models/attachment.dart';
 class HopUp extends Attachment {
   String name;
   String effect;
-  ItemType itemType;
   List<Weapons> compatibleMainWeapons;
   List<Weapons> compatibleMobileWeapons;
 
   HopUp(
       {required this.name,
       required this.effect,
-      required this.itemType,
+      required super.itemType,
       this.compatibleMainWeapons = const [],
       this.compatibleMobileWeapons = const [],
       super.vaultedInMain,

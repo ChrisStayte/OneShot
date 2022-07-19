@@ -23,19 +23,39 @@ class WeaponsProvider extends ChangeNotifier {
         ItemType.common: 22,
         ItemType.rare: 25,
         ItemType.epic: 27,
+        ItemType.legendary: 27
       },
       tacReloadTimesInSeconds: {
         ItemType.nothing: 1.9,
         ItemType.common: 1.84,
         ItemType.rare: 1.77,
-        ItemType.epic: 1.71
+        ItemType.epic: 1.71,
+        ItemType.legendary: 1.71
       },
       fullReloadTimesInSeconds: {
         ItemType.nothing: 2.23,
         ItemType.common: 2.16,
         ItemType.rare: 2.08,
-        ItemType.epic: 2.01
+        ItemType.epic: 2.01,
+        ItemType.legendary: 2.01,
       },
-    )
+    ),
+    Weapons.prowler: Weapon(
+      name: 'Prolwer Burst PDW',
+      ammo: AmmoType.heavy,
+      weaponType: WeaponType.smg,
+      bodyDamage: 14,
+      headDamage: 21,
+      legDamage: 11,
+      damagePerSecond: 167,
+      rateOfFire: 666,
+      magazineSizes: {
+        ItemType.nothing: 20,
+        ItemType.common: 25,
+        ItemType.rare: 30,
+        ItemType.epic: 35,
+        ItemType.legendary: 35,
+      },
+    ),
   };
 }
