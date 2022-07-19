@@ -1,7 +1,7 @@
 enum Weapons {
   havoc,
   flatline,
-  hemlock,
+  hemlok,
   r301,
   alternator,
   prowler,

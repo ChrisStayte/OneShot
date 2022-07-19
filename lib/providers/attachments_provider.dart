@@ -9,7 +9,7 @@ import 'package:oneshot/models/optic.dart';
 import 'package:oneshot/models/shotgun_bolt.dart';
 import 'package:oneshot/models/stock.dart';
 
-class AttachmentsProvider extends ChangeNotifier {
+class AttachmentsProvider {
   List<Optic> optics = [
     Optic(
       name: '1x HCOG "Classic"',
@@ -53,7 +53,7 @@ class AttachmentsProvider extends ChangeNotifier {
       compatibleWeapons: [
         Weapons.havoc,
         Weapons.flatline,
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
         Weapons.chargerifle,
         Weapons.longbow,
@@ -76,7 +76,7 @@ class AttachmentsProvider extends ChangeNotifier {
       compatibleWeapons: [
         Weapons.havoc,
         Weapons.flatline,
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
         Weapons.chargerifle,
         Weapons.longbow,
@@ -150,7 +150,7 @@ class AttachmentsProvider extends ChangeNotifier {
         Weapons.rampage,
         Weapons.havoc,
         Weapons.flatline,
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
       ],
       percentLessAdsTime: 15,
@@ -174,7 +174,7 @@ class AttachmentsProvider extends ChangeNotifier {
         Weapons.rampage,
         Weapons.havoc,
         Weapons.flatline,
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
       ],
       percentLessAdsTime: 20,
@@ -198,7 +198,7 @@ class AttachmentsProvider extends ChangeNotifier {
         Weapons.rampage,
         Weapons.havoc,
         Weapons.flatline,
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
       ],
       percentLessAdsTime: 25,
@@ -279,7 +279,7 @@ class AttachmentsProvider extends ChangeNotifier {
     BarrelStabilizer(
       itemType: ItemType.common,
       compatibleWeapons: [
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
         Weapons.alternator,
         Weapons.car,
@@ -306,7 +306,7 @@ class AttachmentsProvider extends ChangeNotifier {
     BarrelStabilizer(
       itemType: ItemType.rare,
       compatibleWeapons: [
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
         Weapons.alternator,
         Weapons.car,
@@ -333,7 +333,7 @@ class AttachmentsProvider extends ChangeNotifier {
     BarrelStabilizer(
       itemType: ItemType.epic,
       compatibleWeapons: [
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
         Weapons.alternator,
         Weapons.car,
@@ -360,7 +360,7 @@ class AttachmentsProvider extends ChangeNotifier {
     BarrelStabilizer(
       itemType: ItemType.legendary,
       compatibleWeapons: [
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.r301,
         Weapons.alternator,
         Weapons.car,
@@ -422,7 +422,7 @@ class AttachmentsProvider extends ChangeNotifier {
           'Boosts reload time and overloads weapon when the magazine is almost empty.',
       itemType: ItemType.legendary,
       compatibleMainWeapons: [
-        Weapons.hemlock,
+        Weapons.hemlok,
         Weapons.wingman,
       ],
     ),

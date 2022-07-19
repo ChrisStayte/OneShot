@@ -10,7 +10,7 @@ import 'package:oneshot/extensions.dart';
 import 'package:oneshot/models/ability.dart';
 import 'package:oneshot/models/legend.dart';
 
-class LegendsProvider extends ChangeNotifier {
+class LegendsProvider {
   Map<Legends, Legend> legends = {
     ///
     /// Ash

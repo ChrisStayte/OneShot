@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:oneshot/models/legend.dart';
+import 'package:oneshot/providers/attachments_provider.dart';
 import 'package:oneshot/providers/legends_provider.dart';
+import 'package:oneshot/providers/weapons_provider.dart';
 import 'package:oneshot/screens/wiki/legend_screen.dart';
+import 'package:oneshot/screens/wiki/legends_screen.dart';
 import 'package:oneshot/screens/wiki/wiki_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -14,8 +17,14 @@ class WikiRoot extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<LegendsProvider>(
+        Provider<LegendsProvider>(
           create: (_) => LegendsProvider(),
+        ),
+        Provider<AttachmentsProvider>(
+          create: (_) => AttachmentsProvider(),
+        ),
+        Provider<WeaponsProvider>(
+          create: (_) => WeaponsProvider(),
         )
       ],
       child: Navigator(
@@ -28,6 +37,8 @@ class WikiRoot extends StatelessWidget {
               switch (settings.name) {
                 case '/':
                   return WikiScreen();
+                case '/legends':
+                  return LegendsScreen();
                 case '/legend':
                   String legendName = settings.arguments as String;
                   Legend? legend =

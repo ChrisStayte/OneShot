@@ -8,12 +8,13 @@ class HopUp extends Attachment {
   List<Weapons> compatibleMainWeapons;
   List<Weapons> compatibleMobileWeapons;
 
-  HopUp(
-      {required this.name,
-      required this.effect,
-      required super.itemType,
-      this.compatibleMainWeapons = const [],
-      this.compatibleMobileWeapons = const [],
-      super.vaultedInMain,
-      super.valuedInMobile});
+  HopUp({
+    required this.name,
+    required this.effect,
+    required super.itemType,
+    this.compatibleMainWeapons = const [],
+    this.compatibleMobileWeapons = const [],
+    super.vaultedInMain,
+    super.vaultedInMobile,
+  });
 }

@@ -33,7 +33,8 @@ flutter:
 
   assets:
     - assets/images/weapon/
-    - assets/images/weapon/ammoType/
+    - assets/images/ammoType/
+    - assets/images/fireMode/
     - assets/images/legendType/
     - assets/images/legend/
     - assets/images/legend/ash/
