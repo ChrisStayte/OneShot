@@ -18,6 +18,12 @@ class WeaponScreen extends StatelessWidget {
   final Weapons weaponKey;
   final Weapon weapon;
 
+  final TextStyle _boxTextStyle =
+      const TextStyle(color: Colors.white, fontWeight: FontWeight.bold);
+
+  final TextStyle _titeTextStyle =
+      const TextStyle(fontSize: 16, fontWeight: FontWeight.w500);
+
   String _weaponTypeName() {
     switch (weapon.weaponType) {
       case WeaponType.smg:
@@ -55,22 +61,8 @@ class WeaponScreen extends StatelessWidget {
     List<Optic> optics = _optics(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
         title: Text(weapon.name),
         elevation: 0,
-        actions: weapon.ammoTypes
-            .map(
-              (e) => Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: SvgPicture.asset(
-                  weapon.isMythic
-                      ? 'assets/images/ammoType/${e.name}_mythic.svg'
-                      : 'assets/images/ammoType/${e.name}.svg',
-                  width: 35,
-                ),
-              ),
-            )
-            .toList(),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -78,22 +70,58 @@ class WeaponScreen extends StatelessWidget {
           horizontal: 10,
         ),
         children: [
-          Image.asset(
-            'assets/images/weapon/${weaponKey.name.toLowerCaseStripped()}.webp',
-            height: 250,
+          Stack(
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Image.asset(
+                  'assets/images/weapon/${weaponKey.name.toLowerCaseStripped()}.webp',
+                  height: 250,
+                ),
+              ),
+              Positioned(
+                  bottom: 10,
+                  child: Row(
+                    children: weapon.ammoTypes
+                        .map(
+                          (e) => Padding(
+                            padding: const EdgeInsets.only(right: 8.0),
+                            child: Tooltip(
+                              triggerMode: TooltipTriggerMode.tap,
+                              message: e.name.capitalize(),
+                              child: SvgPicture.asset(
+                                weapon.isMythic
+                                    ? 'assets/images/ammoType/${e.name}_mythic.svg'
+                                    : 'assets/images/ammoType/${e.name}.svg',
+                                width: 35,
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  ))
+            ],
           ),
           Row(
             children: [
-              Text(
-                _weaponTypeName(),
+              // Text(
+              //   _weaponTypeName(),
+              //   style: _titeTextStyle,
+              // ),
+              Chip(
+                label: Text(_weaponTypeName()),
               ),
               Spacer(),
               ...weapon.firemode.map(
                 (e) => Padding(
                   padding: const EdgeInsets.only(left: 8.0),
-                  child: SvgPicture.asset(
-                    'assets/images/fireMode/${e.name}.svg',
-                    width: 35,
+                  child: Tooltip(
+                    triggerMode: TooltipTriggerMode.tap,
+                    message: e.name.capitalize(),
+                    child: SvgPicture.asset(
+                      'assets/images/fireMode/${e.name}.svg',
+                      width: 35,
+                    ),
                   ),
                 ),
               )
@@ -102,7 +130,10 @@ class WeaponScreen extends StatelessWidget {
           Divider(
             thickness: 2,
           ),
-          Text('Damage'),
+          Text(
+            'Damage',
+            style: _titeTextStyle,
+          ),
           SizedBox(
             height: 60,
             child: Row(
@@ -115,7 +146,7 @@ class WeaponScreen extends StatelessWidget {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.grey.shade600,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Column(
@@ -123,10 +154,12 @@ class WeaponScreen extends StatelessWidget {
                         children: [
                           Text(
                             weapon.bodyDamage.toString(),
+                            style: _boxTextStyle,
                           ),
                           Text(
                             'Body Damage',
                             textAlign: TextAlign.center,
+                            style: _boxTextStyle,
                           )
                         ],
                       ),
@@ -149,10 +182,12 @@ class WeaponScreen extends StatelessWidget {
                         children: [
                           Text(
                             weapon.headDamage.toString(),
+                            style: _boxTextStyle,
                           ),
                           Text(
                             'Head Damage',
                             textAlign: TextAlign.center,
+                            style: _boxTextStyle,
                           )
                         ],
                       ),
@@ -175,11 +210,11 @@ class WeaponScreen extends StatelessWidget {
                         children: [
                           Text(
                             weapon.legDamage.toString(),
+                            style: _boxTextStyle,
                           ),
-                          Text(
-                            'Leg Damage',
-                            textAlign: TextAlign.center,
-                          ),
+                          Text('Leg Damage',
+                              textAlign: TextAlign.center,
+                              style: _boxTextStyle),
                         ],
                       ),
                     ),
@@ -189,7 +224,10 @@ class WeaponScreen extends StatelessWidget {
             ),
           ),
           weapon.rateOfFire.values.length > 0
-              ? Text('Rate Of Fire')
+              ? Text(
+                  'Rate Of Fire',
+                  style: _titeTextStyle,
+                )
               : SizedBox(),
           Row(
             children: weapon.rateOfFire.keys
@@ -207,9 +245,13 @@ class WeaponScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(weapon.rateOfFire[e].toString()),
+                            Text(
+                              weapon.rateOfFire[e].toString(),
+                              style: _boxTextStyle,
+                            ),
                             Text(
                               e.name.capitalize(),
+                              style: _boxTextStyle,
                             )
                           ],
                         ),
@@ -220,7 +262,10 @@ class WeaponScreen extends StatelessWidget {
                 .toList(),
           ),
           weapon.damagePerSecond.values.length > 0
-              ? Text('Damange Per Second')
+              ? Text(
+                  'Damange Per Second',
+                  style: _titeTextStyle,
+                )
               : SizedBox(),
           Row(
             children: weapon.damagePerSecond.keys
@@ -238,9 +283,13 @@ class WeaponScreen extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(weapon.damagePerSecond[e].toString()),
+                            Text(
+                              weapon.damagePerSecond[e].toString(),
+                              style: _boxTextStyle,
+                            ),
                             Text(
                               e.name.capitalize(),
+                              style: _boxTextStyle,
                             )
                           ],
                         ),
@@ -251,7 +300,10 @@ class WeaponScreen extends StatelessWidget {
                 .toList(),
           ),
           weapon.magazineSizes.values.length > 0
-              ? Text('Magazine Sizes')
+              ? Text(
+                  'Magazine Sizes',
+                  style: _titeTextStyle,
+                )
               : SizedBox(),
           Row(
             children: weapon.magazineSizes.keys
@@ -269,6 +321,7 @@ class WeaponScreen extends StatelessWidget {
                         child: Center(
                           child: Text(
                             weapon.magazineSizes[e].toString(),
+                            style: _boxTextStyle,
                           ),
                         ),
                       ),
@@ -278,7 +331,10 @@ class WeaponScreen extends StatelessWidget {
                 .toList(),
           ),
           weapon.tacReloadTimesInSeconds.values.length > 0
-              ? Text('Tact Reload Times')
+              ? Text(
+                  'Tact Reload Times',
+                  style: _titeTextStyle,
+                )
               : SizedBox(),
           Row(
             children: weapon.tacReloadTimesInSeconds.keys
@@ -295,7 +351,8 @@ class WeaponScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            weapon.tacReloadTimesInSeconds[e].toString(),
+                            '${weapon.tacReloadTimesInSeconds[e].toString()}s',
+                            style: _boxTextStyle,
                           ),
                         ),
                       ),
@@ -305,7 +362,10 @@ class WeaponScreen extends StatelessWidget {
                 .toList(),
           ),
           weapon.tacReloadTimesInSeconds.values.length > 0
-              ? Text('Full Reload Times')
+              ? Text(
+                  'Full Reload Times',
+                  style: _titeTextStyle,
+                )
               : SizedBox(),
           Row(
             children: weapon.fullReloadTimesInSeconds.keys
@@ -322,7 +382,8 @@ class WeaponScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            weapon.fullReloadTimesInSeconds[e].toString(),
+                            '${weapon.fullReloadTimesInSeconds[e].toString()}s',
+                            style: _boxTextStyle,
                           ),
                         ),
                       ),
@@ -331,7 +392,12 @@ class WeaponScreen extends StatelessWidget {
                 )
                 .toList(),
           ),
-          optics.length > 0 ? Text('Optics') : SizedBox(),
+          optics.length > 0
+              ? Text(
+                  'Optics',
+                  style: _titeTextStyle,
+                )
+              : SizedBox(),
           SizedBox(
             height: 65,
             child: ListView(
@@ -340,18 +406,20 @@ class WeaponScreen extends StatelessWidget {
                   .map(
                     (optic) => Container(
                       padding: EdgeInsets.all(5),
-                      width: 100,
-                      child: Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: Global.colors.itemColors[optic.itemType] ??
-                              Colors.grey,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Center(
-                          child: AutoSizeText(
-                            optic.name,
-                            maxLines: 2,
+                      width: 80,
+                      child: Tooltip(
+                        triggerMode: TooltipTriggerMode.tap,
+                        message: optic.name,
+                        child: Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Global.colors.itemColors[optic.itemType] ??
+                                Colors.grey,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                                'assets/images/optic/${optic.name.toLowerCaseStripped()}.webp'),
                           ),
                         ),
                       ),

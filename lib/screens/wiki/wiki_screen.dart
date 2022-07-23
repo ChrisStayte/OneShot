@@ -21,82 +21,17 @@ class WikiScreen extends StatelessWidget {
         elevation: 0,
         title: Text('One Shot Wiki'),
       ),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      height: 250,
-                      child: GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, '/legends'),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(
-                              25,
-                            ),
-                          ),
-                          child: Stack(children: [
-                            Positioned(
-                              child: Text(
-                                'Legends',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              bottom: 15,
-                              right: 15,
-                            )
-                          ]),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      height: 250,
-                      child: GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, '/weapons'),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(
-                              25,
-                            ),
-                          ),
-                          child: Stack(children: [
-                            Positioned(
-                              child: Text(
-                                'Weapons',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              bottom: 15,
-                              right: 15,
-                            )
-                          ]),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      height: 250,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    height: 250,
+                    child: GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, '/legends'),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.blue,
@@ -107,7 +42,7 @@ class WikiScreen extends StatelessWidget {
                         child: Stack(children: [
                           Positioned(
                             child: Text(
-                              'Gear',
+                              'Legends',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 23,
@@ -121,10 +56,13 @@ class WikiScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(10),
-                      height: 250,
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    height: 250,
+                    child: GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, '/weapons'),
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.blue,
@@ -135,7 +73,7 @@ class WikiScreen extends StatelessWidget {
                         child: Stack(children: [
                           Positioned(
                             child: Text(
-                              'Maps',
+                              'Weapons',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 23,
@@ -149,10 +87,78 @@ class WikiScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
+                ),
+              ],
+            ),
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: Container(
+            //         padding: EdgeInsets.all(10),
+            //         height: 250,
+            //         child: Container(
+            //           decoration: BoxDecoration(
+            //             color: Colors.blue,
+            //             borderRadius: BorderRadius.circular(
+            //               25,
+            //             ),
+            //           ),
+            //           child: Stack(children: [
+            //             Positioned(
+            //               child: Text(
+            //                 'Gear',
+            //                 style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontSize: 23,
+            //                   fontWeight: FontWeight.bold,
+            //                 ),
+            //               ),
+            //               bottom: 15,
+            //               right: 15,
+            //             )
+            //           ]),
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       child: Container(
+            //         padding: EdgeInsets.all(10),
+            //         height: 250,
+            //         child: Container(
+            //           decoration: BoxDecoration(
+            //             color: Colors.blue,
+            //             borderRadius: BorderRadius.circular(
+            //               25,
+            //             ),
+            //           ),
+            //           child: Stack(children: [
+            //             Positioned(
+            //               child: Text(
+            //                 'Maps',
+            //                 style: TextStyle(
+            //                   color: Colors.white,
+            //                   fontSize: 23,
+            //                   fontWeight: FontWeight.bold,
+            //                 ),
+            //               ),
+            //               bottom: 15,
+            //               right: 15,
+            //             )
+            //           ]),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            Spacer(),
+            Chip(
+              label: Text(
+                'This will grow as I have time',
+                style: Theme.of(context).textTheme.labelSmall,
+                textAlign: TextAlign.center,
               ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

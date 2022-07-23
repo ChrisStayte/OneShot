@@ -15,21 +15,26 @@ class LegendsScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: ListView.builder(
-        itemCount: context.read<LegendsProvider>().legends.length,
-        itemBuilder: (BuildContext context, int index) {
-          Legends legendKey =
-              context.read<LegendsProvider>().legends.keys.toList()[index];
-          Legend legend = context.read<LegendsProvider>().legends[legendKey]!;
-          return ListTile(
-            title: Text(legend.name),
-            onTap: () => Navigator.pushNamed(
-              context,
-              '/legend',
-              arguments: legendKey.name,
-            ),
-          );
-        },
-      ),
+          itemCount: context.read<LegendsProvider>().legends.length,
+          itemBuilder: (BuildContext context, int index) {
+            Legends legendKey =
+                context.read<LegendsProvider>().legends.keys.toList()[index];
+            Legend legend = context.read<LegendsProvider>().legends[legendKey]!;
+            //   return ListTile(
+            //     title: Text(legend.name),
+            //     onTap: () => Navigator.pushNamed(
+            //       context,
+            //       '/legend',
+            //       arguments: legendKey.name,
+            //     ),
+            //   );
+            // },
+            return Container(
+              child: Column(
+                children: [Text(legend.name)],
+              ),
+            );
+          }),
     );
   }
 }
