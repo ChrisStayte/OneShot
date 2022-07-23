@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:oneshot/enums/OpticRange.dart';
 import 'package:oneshot/enums/item_type.dart';
 import 'package:oneshot/enums/stock_type.dart';
@@ -12,7 +11,8 @@ import 'package:oneshot/models/stock.dart';
 class AttachmentsProvider {
   List<Optic> optics = [
     Optic(
-      name: '1x HCOG "Classic"',
+      name: '1x HCOG',
+      altName: 'classic',
       range: OpticRange.close,
       itemType: ItemType.common,
       compatibleWeapons: Weapons.values,
@@ -24,7 +24,8 @@ class AttachmentsProvider {
       compatibleWeapons: Weapons.values,
     ),
     Optic(
-      name: '2x HCOG "Bruiser"',
+      name: '2x HCOG',
+      altName: 'Bruiser',
       range: OpticRange.close,
       itemType: ItemType.rare,
       compatibleWeapons: Weapons.values,
@@ -47,7 +48,8 @@ class AttachmentsProvider {
       ],
     ),
     Optic(
-      name: '3x HCOG "Ranger"',
+      name: '3x HCOG',
+      altName: 'Ranger',
       range: OpticRange.mid,
       itemType: ItemType.epic,
       compatibleWeapons: [

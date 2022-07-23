@@ -62,27 +62,30 @@ class WikiScreen extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(10),
                       height: 250,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(
-                            25,
-                          ),
-                        ),
-                        child: Stack(children: [
-                          Positioned(
-                            child: Text(
-                              'Weapons',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      child: GestureDetector(
+                        onTap: () => Navigator.pushNamed(context, '/weapons'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(
+                              25,
                             ),
-                            bottom: 15,
-                            right: 15,
-                          )
-                        ]),
+                          ),
+                          child: Stack(children: [
+                            Positioned(
+                              child: Text(
+                                'Weapons',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              bottom: 15,
+                              right: 15,
+                            )
+                          ]),
+                        ),
                       ),
                     ),
                   ),

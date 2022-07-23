@@ -142,51 +142,13 @@ class WeaponsProvider {
         FireModes.automatic: 720,
       },
       magazineSizes: {
-        ItemType.legendary: 27,
+        ItemType.mythic: 27,
       },
       tacReloadTimesInSeconds: {
-        ItemType.legendary: 1.44,
+        ItemType.mythic: 1.44,
       },
       fullReloadTimesInSeconds: {
-        ItemType.legendary: 2.03,
-      },
-    ),
-    Weapons.volt: Weapon(
-      name: 'Volt',
-      ammoTypes: [AmmoType.light],
-      weaponType: WeaponType.smg,
-      firemode: [
-        FireModes.automatic,
-      ],
-      bodyDamage: 16,
-      headDamage: 24,
-      legDamage: 13,
-      damagePerSecond: {
-        FireModes.automatic: 160,
-      },
-      rateOfFire: {
-        FireModes.automatic: 600,
-      },
-      magazineSizes: {
-        ItemType.nothing: 19,
-        ItemType.common: 22,
-        ItemType.rare: 25,
-        ItemType.epic: 27,
-        ItemType.legendary: 27,
-      },
-      tacReloadTimesInSeconds: {
-        ItemType.nothing: 1.9,
-        ItemType.common: 1.84,
-        ItemType.rare: 1.77,
-        ItemType.epic: 1.71,
-        ItemType.legendary: 1.71,
-      },
-      fullReloadTimesInSeconds: {
-        ItemType.nothing: 2.23,
-        ItemType.common: 2.16,
-        ItemType.rare: 2.08,
-        ItemType.epic: 2.01,
-        ItemType.legendary: 2.01,
+        ItemType.mythic: 2.03,
       },
     ),
     Weapons.car: Weapon(
@@ -543,13 +505,13 @@ class WeaponsProvider {
         FireModes.burst: 152,
       },
       magazineSizes: {
-        ItemType.nothing: 20,
+        ItemType.mythic: 20,
       },
       tacReloadTimesInSeconds: {
-        ItemType.nothing: 2.16,
+        ItemType.mythic: 2.16,
       },
       fullReloadTimesInSeconds: {
-        ItemType.nothing: 2.7,
+        ItemType.mythic: 2.7,
       },
       isMythic: true,
     ),
@@ -735,13 +697,13 @@ class WeaponsProvider {
         FireModes.single: 58,
       },
       magazineSizes: {
-        ItemType.nothing: 4,
+        ItemType.mythic: 4,
       },
       tacReloadTimesInSeconds: {
-        ItemType.nothing: 3.2,
+        ItemType.mythic: 3.2,
       },
       fullReloadTimesInSeconds: {
-        ItemType.nothing: 4.3,
+        ItemType.mythic: 4.3,
       },
       isMythic: true,
     ),
@@ -826,13 +788,13 @@ class WeaponsProvider {
         FireModes.single: 134,
       },
       magazineSizes: {
-        ItemType.nothing: 4,
+        ItemType.mythic: 4,
       },
       tacReloadTimesInSeconds: {
-        ItemType.nothing: 1.03,
+        ItemType.mythic: 1.03,
       },
       fullReloadTimesInSeconds: {
-        ItemType.nothing: 1.7,
+        ItemType.mythic: 1.7,
       },
       isMythic: true,
     ),

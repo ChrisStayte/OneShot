@@ -1,1 +1,1 @@
-enum ItemType { nothing, common, rare, epic, legendary }
+enum ItemType { nothing, common, rare, epic, legendary, mythic }
