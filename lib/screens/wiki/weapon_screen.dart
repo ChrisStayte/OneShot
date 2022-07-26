@@ -5,7 +5,7 @@ import 'package:oneshot/enums/weapon_type.dart';
 import 'package:oneshot/enums/weapons.dart';
 import 'package:oneshot/extensions.dart';
 import 'package:oneshot/global.dart';
-import 'package:oneshot/models/barrelStabilizer.dart';
+import 'package:oneshot/models/barrel_stabilizer.dart';
 import 'package:oneshot/models/optic.dart';
 import 'package:oneshot/models/weapon.dart';
 import 'package:oneshot/providers/attachments_provider.dart';
@@ -146,7 +146,7 @@ class WeaponScreen extends StatelessWidget {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey.shade600,
+                        color: Colors.grey,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Column(
@@ -252,7 +252,14 @@ class WeaponScreen extends StatelessWidget {
                             Text(
                               e.name.capitalize(),
                               style: _boxTextStyle,
-                            )
+                            ),
+                            // Padding(
+                            //   padding:
+                            //       const EdgeInsets.symmetric(horizontal: 8.0),
+                            //   child: LinearProgressIndicator(
+                            //     value: .5,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),

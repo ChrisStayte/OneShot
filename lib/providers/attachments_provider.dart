@@ -2,7 +2,7 @@ import 'package:oneshot/enums/OpticRange.dart';
 import 'package:oneshot/enums/item_type.dart';
 import 'package:oneshot/enums/stock_type.dart';
 import 'package:oneshot/enums/weapons.dart';
-import 'package:oneshot/models/barrelStabilizer.dart';
+import 'package:oneshot/models/barrel_stabilizer.dart';
 import 'package:oneshot/models/hopup.dart';
 import 'package:oneshot/models/optic.dart';
 import 'package:oneshot/models/shotgun_bolt.dart';

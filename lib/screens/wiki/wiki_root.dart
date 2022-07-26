@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oneshot/enums/legends.dart';
 import 'package:oneshot/enums/weapons.dart';
 import 'package:oneshot/models/legend.dart';
 import 'package:oneshot/models/weapon.dart';
@@ -44,14 +45,14 @@ class WikiRoot extends StatelessWidget {
                 case '/legends':
                   return LegendsScreen();
                 case '/legend':
-                  String legendName = settings.arguments as String;
+                  Legends legendKey = settings.arguments as Legends;
                   Legend? legend =
-                      context.read<LegendsProvider>().legendByName(legendName);
+                      context.read<LegendsProvider>().legends[legendKey];
 
                   if (legend != null) {
                     return LegendScreen(legend: legend);
                   } else {
-                    throw Exception('Legend not found: $legendName');
+                    throw Exception('Legend not found: $legendKey');
                   }
                 case '/weapons':
                   return WeaponsScreen();

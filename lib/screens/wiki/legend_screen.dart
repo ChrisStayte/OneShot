@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:oneshot/enums/ability_type.dart';
+import 'package:oneshot/enums/legend_type.dart';
 import 'package:oneshot/extensions.dart';
 import 'package:oneshot/models/legend.dart';
 
@@ -23,15 +24,6 @@ class LegendScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text(legend.name),
-        actions: [
-          SvgPicture.asset(
-            'assets/images/legendType/${legend.legendType.name}.svg',
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: 5,
-          )
-        ],
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(
@@ -42,18 +34,33 @@ class LegendScreen extends StatelessWidget {
             legend.tagline,
             textAlign: TextAlign.center,
           ),
-          Image.asset(
-              'assets/images/legend/${legend.name.toLowerCaseStripped()}/profile.png'),
+          Stack(
+            children: [
+              Image.asset(
+                  'assets/images/legend/${legend.name.toLowerCaseStripped()}/profile.png'),
+              Positioned(
+                bottom: 10,
+                right: 25,
+                child: Tooltip(
+                  triggerMode: TooltipTriggerMode.tap,
+                  message: legend.legendType.name.capitalize(),
+                  child: SvgPicture.asset(
+                    'assets/images/legendType/${legend.legendType.name}.svg',
+                  ),
+                ),
+              ),
+            ],
+          ),
           Wrap(
             alignment: WrapAlignment.center,
             spacing: 10,
             children: [
               Chip(
-                avatar: Icon(legend.inMainGame ? Icons.check : Icons.cancel),
+                avatar: Icon(legend.inMainGame ? Icons.check : Icons.close),
                 label: const Text('Apex'),
               ),
               Chip(
-                avatar: Icon(legend.inMobileGame ? Icons.check : Icons.cancel),
+                avatar: Icon(legend.inMobileGame ? Icons.check : Icons.close),
                 label: const Text('Apex Mobile'),
               )
             ],
@@ -78,12 +85,12 @@ class LegendScreen extends StatelessWidget {
             title: Text('Voice Actor'),
             trailing: Text(legend.voiceActor),
           ),
-          ListTile(
-            title: Text('Legend Type'),
-            trailing: Text(
-              legend.legendType.name.capitalize(),
-            ),
-          ),
+          // ListTile(
+          //   title: Text('Legend Type'),
+          //   trailing: Text(
+          //     legend.legendType.name.capitalize(),
+          //   ),
+          // ),
           ...getAbilities()
         ],
       ),
