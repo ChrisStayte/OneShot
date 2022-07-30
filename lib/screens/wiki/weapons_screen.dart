@@ -52,7 +52,8 @@ class WeaponsScreen extends StatelessWidget {
         itemCount: context.read<WeaponsProvider>().weapons.length,
         itemBuilder: (BuildContext context, int index) {
           Weapons weaponKey =
-              context.read<WeaponsProvider>().weapons.keys.toList()[index];
+              (context.read<WeaponsProvider>().weapons.keys.toList()
+                ..sort((a, b) => a.name.compareTo(b.name)))[index];
           //Weapon weapon = context.read<WeaponsProvider>().weapons[weaponKey]!;
           // Sort Alphabetically
           Weapon weapon =

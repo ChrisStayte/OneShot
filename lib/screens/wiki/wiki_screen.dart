@@ -21,6 +21,21 @@ class WikiScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text('One Shot Wiki'),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Info'),
+                        content: Text(
+                            'The content from the app, or parts of it, comes from Apex Legends or from websites created and owned by Electronic Arts Inc. or Respawn Entertainment, who hold the copyright of Apex Legends. All trademarks and registered trademarks present in the file are proprietary to Electronic Arts Inc.. The use of images to illustrate articles concerning the subject of the image in question is believed to qualify as fair use under United States copyright law, as such display does not significantly impede the right of the copyright holder to sell the copyrighted material.'),
+                      );
+                    });
+              },
+              icon: Icon(Icons.info))
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -29,13 +44,13 @@ class WikiScreen extends StatelessWidget {
               children: [
                 WikiMainCategoryCard(
                   name: 'Legends',
-                  assetPath: 'assets/images/logos/legends.webp',
+                  assetPath: 'assets/images/logo/legends.webp',
                   navigation: () => Navigator.pushNamed(context, '/legends'),
                   imageBoxFit: BoxFit.cover,
                   imageRepeat: ImageRepeat.noRepeat,
                 ),
                 WikiMainCategoryCard(
-                  assetPath: 'assets/images/logos/weapons.png',
+                  assetPath: 'assets/images/logo/weapons.png',
                   name: 'Weapons',
                   imageBoxFit: BoxFit.contain,
                   navigation: () => Navigator.pushNamed(context, '/weapons'),
