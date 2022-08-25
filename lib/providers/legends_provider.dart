@@ -1,14 +1,16 @@
 import 'dart:ffi';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:oneshot/enums/ability_type.dart';
 import 'package:oneshot/enums/gender.dart';
 import 'package:oneshot/enums/legend_type.dart';
 import 'package:oneshot/enums/legends.dart';
+import 'package:oneshot/extensions.dart';
 import 'package:oneshot/models/ability.dart';
 import 'package:oneshot/models/legend.dart';
 
-class LegendsProvider extends ChangeNotifier {
+class LegendsProvider {
   Map<Legends, Legend> legends = {
     ///
     /// Ash
@@ -107,13 +109,13 @@ class LegendsProvider extends ChangeNotifier {
               'Transform into the ultimate hunter. Enhances your senses, allowing you to see cold tracks and move faster. Downing opponents extend duration',
         ),
       },
-      homeworld: '',
+      homeworld: 'Talos',
       fullName: 'Blódhundr',
       gender: Gender.nonBinary,
       inMainGame: true,
       inMobileGame: true,
       legendType: LegendType.recon,
-      voiceActor: '',
+      voiceActor: 'Allegra Clark',
     ),
 
     ///
@@ -617,7 +619,7 @@ class LegendsProvider extends ChangeNotifier {
     /// https://apexlegends.fandom.com/wiki/Revenant
     ///
     Legends.revenant: Legend(
-      name: 'Reventant',
+      name: 'Revenant',
       tagline: 'Synthetic Nightmare',
       abilities: {
         AbilityType.passive: Ability(
@@ -792,9 +794,8 @@ class LegendsProvider extends ChangeNotifier {
   };
 
   Legend? legendByName(String name) {
-    Legends? legend = legends.keys.toList().firstWhere(
-        (element) => element.name.toLowerCase() == name.toLowerCase(),
-        orElse: null);
+    Legends? legend = legends.keys.toList().firstWhereOrNull((element) =>
+        element.name.toLowerCaseStripped() == name.toLowerCaseStripped());
 
     if (legend != null) {
       return legends[legend]!;

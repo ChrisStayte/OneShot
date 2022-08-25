@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:oneshot/enums/platform.dart';
 
 class API {
-  _ApexLegendsAPIDotCom ApexLegendsAPIDotCom = _ApexLegendsAPIDotCom();
+  static final _ApexLegendsAPIDotCom ApexLegendsAPIDotCom =
+      _ApexLegendsAPIDotCom();
 }
 
 class _ApexLegendsAPIDotCom {
@@ -9,4 +10,9 @@ class _ApexLegendsAPIDotCom {
 
   static const String urlBase = "https://api.mozambiquehe.re/";
   static const String urlCrafting = '${urlBase}crafting?auth=$key';
+  static const String urlPlayer = '${urlBase}bridge?auth=$key';
+
+  String getPlayerUrl(String name, Platform platform) {
+    return '$urlPlayer&player=$name&platform=${platform.apiString}';
+  }
 }

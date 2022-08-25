@@ -14,10 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   static const List<BottomNavigationBarItem> navigationBarItems = [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.textsms_sharp),
-      label: 'Home',
-    ),
+    // BottomNavigationBarItem(
+    //   icon: Icon(Icons.textsms_sharp),
+    //   label: 'Home',
+    // ),
     BottomNavigationBarItem(
       icon: Icon(Icons.person),
       label: 'Stats',
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   //     List.filled(navigationBarItems.length, GlobalKey<NavigatorState>());
 
   List<GlobalKey<NavigatorState>> keys = [
-    GlobalKey<NavigatorState>(),
+    // GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>(),
     GlobalKey<NavigatorState>()
   ];
@@ -44,14 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          OverviewRoot(
+          // OverviewRoot(
+          //   navigatorKey: keys[0],
+          // ),
+          SearchRoot(
             navigatorKey: keys[0],
           ),
-          SearchRoot(
-            navigatorKey: keys[1],
-          ),
           WikiRoot(
-            navigatorKey: keys[2],
+            navigatorKey: keys[1],
           )
         ],
       ),
@@ -63,10 +63,11 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {
               _currentIndex = index;
             });
+            return;
+          }
 
-            if (keys[index].currentState!.canPop()) {
-              keys[index].currentState!.popUntil((route) => route.isFirst);
-            }
+          if (keys[index].currentState!.canPop()) {
+            keys[index].currentState!.popUntil((route) => route.isFirst);
           }
         },
         items: navigationBarItems,

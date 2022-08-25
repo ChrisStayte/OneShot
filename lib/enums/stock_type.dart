@@ -1,0 +1,1 @@
+enum StockType { standard, sniper }

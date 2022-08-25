@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:oneshot/models/player.dart';
+import 'package:oneshot/providers/players_provider.dart';
+import 'package:oneshot/screens/search/player_screen.dart';
 import 'package:oneshot/screens/search/search_screen.dart';
+import 'package:provider/provider.dart';
 
 class SearchRoot extends StatelessWidget {
   const SearchRoot({super.key, required this.navigatorKey});
@@ -8,22 +12,33 @@ class SearchRoot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      initialRoute: '/',
-      onGenerateRoute: (RouteSettings settings) {
-        return MaterialPageRoute(
-          settings: settings,
-          builder: (BuildContext context) {
-            switch (settings.name) {
-              case '/':
-                return const SearchScreen();
-              default:
-                throw Exception('Invalid route: ${settings.name}');
-            }
-          },
-        );
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => PlayersProvider(),
+          lazy: false,
+        )
+      ],
+      child: Navigator(
+        key: navigatorKey,
+        initialRoute: '/',
+        onGenerateRoute: (RouteSettings settings) {
+          return MaterialPageRoute(
+            settings: settings,
+            builder: (BuildContext context) {
+              switch (settings.name) {
+                case '/':
+                  return const SearchScreen();
+                case '/player':
+                  Player player = settings.arguments as Player;
+                  return PlayerScreen(player: player);
+                default:
+                  throw Exception('Invalid route: ${settings.name}');
+              }
+            },
+          );
+        },
+      ),
     );
   }
 }

@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:oneshot/enums/platform.dart';
+import 'package:oneshot/enums/season.dart';
+import 'package:oneshot/models/player.dart';
+import 'package:oneshot/providers/players_provider.dart';
 import 'package:oneshot/screens/homescreen.dart';
 
-void main() {
+void main() async {
+  Hive.registerAdapter<Player>(PlayerAdapter());
+  Hive.registerAdapter<Platform>(PlatformAdapter());
+  Hive.registerAdapter<Season>(SeasonAdapter());
+
+  await Hive.initFlutter();
+  await Hive.openBox<Player>(PlayersProvider.BoxName);
+
   runApp(const MyApp());
 }
 
@@ -13,8 +25,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'One Shot',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: HomeScreen(),
     );
